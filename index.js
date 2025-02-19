@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import sendMessage from "./producer.js";
-// import startConsumer from "./consumer.js";
+import startConsumer from "./consumer.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,7 +20,7 @@ app.post("/send", async (req, res) => {
 });
 
 // Start the RabbitMQ consumer
-// startConsumer().catch(console.error);
+startConsumer().catch(console.error);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
